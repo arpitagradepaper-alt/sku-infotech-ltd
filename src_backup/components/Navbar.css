@@ -1,0 +1,31 @@
+﻿.navbar {
+  position: sticky; top: 15px; z-index: 100;
+  max-width: 1300px; margin: 15px auto;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 26px; background: rgba(255,255,255,.85);
+  backdrop-filter: blur(10px); border-radius: 60px;
+  box-shadow: 0 8px 30px rgba(0,0,0,.08);
+  animation: dropDown .9s ease both;
+}
+.logo { display: flex; align-items: center; gap: 10px; }
+.logo-icon {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold-light), var(--gold-dark));
+  color: #fff; display: grid; place-items: center; font-weight: 800; font-size: 19px;
+  animation: pulseRing 2.5s infinite;
+}
+.logo h3 { font-size: 18px; font-weight: 800; }
+.logo h3 span { color: var(--gold); }
+.logo small { color: var(--text-gray); font-size: 11px; }
+.nav-links { display: flex; gap: 34px; list-style: none; }
+.nav-links li {
+  position: relative; cursor: pointer; font-weight: 500; font-size: 14px;
+  padding: 6px 0; display: flex; align-items: center; gap: 4px; transition: .3s;
+}
+.nav-links li::after {
+  content: ''; position: absolute; left: 0; bottom: 0;
+  width: 0; height: 3px; background: var(--gold);
+  border-radius: 3px; transition: .35s;
+}
+.nav-links li:hover::after, .nav-links li.active::after { width: 100%; }
+.nav-links li.active, .nav-links li:hover { color: var(--gold); }

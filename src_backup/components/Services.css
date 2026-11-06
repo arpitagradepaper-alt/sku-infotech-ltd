@@ -1,0 +1,121 @@
+﻿.services { position: relative; margin: 70px auto 80px; }
+
+.reveal { opacity: 0; }
+.reveal.show {
+  opacity: 1;
+  animation: fadeUp .9s cubic-bezier(.2,.8,.2,1) backwards;
+  animation-delay: var(--d, 0s);
+}
+
+.sv-deco { position: absolute; pointer-events: none; z-index: -1; }
+.sv-ring {
+  width: 220px; height: 220px; top: 40px; left: 20px;
+  border: 2px dashed rgba(5,150,105,.3); border-radius: 50%;
+  animation: spinSlow 25s linear infinite;
+}
+.sv-dots {
+  width: 120px; height: 120px; bottom: 60px; right: 40px;
+  background-image: radial-gradient(circle, #d9b36a 1.5px, transparent 1.5px);
+  background-size: 20px 20px; animation: float 6s ease-in-out infinite;
+}
+
+/* ---------- Heading ---------- */
+.sv-head { text-align: center; margin-bottom: 30px; padding: 0 30px; }
+.sv-label {
+  display: inline-flex; align-items: center; gap: 14px;
+  font-weight: 600; font-size: 14px; margin-bottom: 14px;
+}
+.sv-label .line {
+  width: 60px; height: 3px; border-radius: 3px;
+  background: linear-gradient(90deg, transparent, var(--gold));
+  animation: lineGrow 2.5s ease-in-out infinite;
+}
+.sv-label .l-right { transform: scaleX(-1); }
+@keyframes lineGrow { 0%,100% { width: 30px; } 50% { width: 70px; } }
+.sv-head h2 { font-size: 38px; font-weight: 800; line-height: 1.15; margin-bottom: 12px; }
+.sv-head h2 span {
+  background: linear-gradient(90deg, var(--gold-light), var(--gold-dark), var(--gold-light));
+  background-size: 200% auto;
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  animation: shimmer 4s linear infinite;
+}
+.sv-head p { color: var(--text-gray); font-size: 15px; max-width: 520px; margin: 0 auto; line-height: 1.6; }
+
+/* ---------- Marquee (cards hamesha ghumte rahenge) ---------- */
+.marquee {
+  overflow: hidden; padding: 24px 0;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.marquee-track {
+  display: flex; width: max-content;
+  animation: marquee 40s linear infinite;
+}
+.marquee-track.reverse { animation-direction: reverse; }
+.marquee:hover .marquee-track { animation-play-state: paused; }
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ---------- Card ---------- */
+.service-card {
+  position: relative; overflow: hidden; flex: 0 0 320px;
+  margin-right: 26px;
+  background: #fff; border-radius: 24px; padding: 28px 24px;
+  border: 1px solid rgba(5,150,105,.15);
+  box-shadow: 0 10px 30px rgba(0,0,0,.06);
+  transition: transform .4s, box-shadow .4s, border-color .4s;
+}
+.service-card::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(260px circle at var(--x, 50%) var(--y, 50%),
+    rgba(232,181,77,.28), transparent 70%);
+  opacity: 0; transition: opacity .4s;
+}
+.service-card::after {
+  content: ''; position: absolute; left: 0; bottom: 0;
+  width: 0; height: 4px;
+  background: linear-gradient(90deg, var(--gold-light), var(--gold-dark));
+  transition: width .5s;
+}
+.service-card:hover {
+  transform: translateY(-10px);
+  border-color: rgba(5,150,105,.5);
+  box-shadow: 0 25px 50px rgba(166,106,14,.22);
+}
+.service-card:hover::before { opacity: 1; }
+.service-card:hover::after { width: 100%; }
+
+.sv-num {
+  position: absolute; top: 12px; right: 20px;
+  font-size: 42px; font-weight: 800; color: rgba(5,150,105,.12); transition: .4s;
+}
+.service-card:hover .sv-num { color: rgba(5,150,105,.3); transform: scale(1.15); }
+
+.sv-icon {
+  position: relative; width: 54px; height: 54px; border-radius: 18px;
+  display: grid; place-items: center; color: #fff; margin-bottom: 18px;
+  background: linear-gradient(135deg, var(--gold-light), var(--gold-dark));
+  box-shadow: 0 10px 20px rgba(5,150,105,.35);
+  animation: float 4s ease-in-out infinite; transition: transform .4s;
+}
+.service-card:nth-child(odd) .sv-icon { animation-delay: -1.5s; }
+.service-card:hover .sv-icon { transform: rotate(-10deg) scale(1.12); }
+
+.service-card h3 { position: relative; font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+.service-card p { position: relative; font-size: 13.5px; color: var(--text-gray); line-height: 1.6; margin-bottom: 16px; }
+
+.sv-link {
+  position: relative; display: inline-flex; align-items: center; gap: 6px;
+  color: var(--gold-dark); font-weight: 600; font-size: 14px; text-decoration: none;
+}
+.sv-link svg { transition: transform .3s; }
+.service-card:hover .sv-link svg { transform: translateX(8px); }
+
+.sv-cta { text-align: center; margin-top: 30px; }
+
+@media (max-width: 600px) {
+  .sv-head h2 { font-size: 28px; }
+  .service-card { flex-basis: 270px; }
+}
