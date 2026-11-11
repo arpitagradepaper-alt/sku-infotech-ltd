@@ -88,9 +88,12 @@ export default function AboutPage() {
             <nav className="ap-crumb" aria-label="Breadcrumb">
               <Link to="/">Home</Link> <ChevronRight size={13} /> <b>About us</b>
             </nav>
-            <h1>Technology built with clarity and care.</h1>
+            <span className="ap-hero-tag">ABOUT US</span>
+            <h1>
+              Technology built with <span>clarity and care.</span>
+            </h1>
             <p>
-              At SKU Infotech LTD, we turn ideas into powerful digital solutions — helping
+              At SKU Infotech LTD, we turn ideas into powerful digital solutions ? helping
               businesses innovate, grow and lead.
             </p>
             <div className="ap-btns">
@@ -99,17 +102,17 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <aside className="ap-profile" aria-label="Company profile">
-            <div className="ap-profile-top">Company profile</div>
-            <dl>
-              {profile.map((g) => (
-                <div className="ap-profile-row" key={g.k}>
-                  <dt>{g.k}</dt>
-                  <dd>{g.v}</dd>
-                </div>
-              ))}
-            </dl>
-          </aside>
+          <div className="ap-hero-visual">
+            <div className="ap-hero-imgwrap">
+              <img src="/images/about-hero.svg" alt="About SKU Infotech" />
+            </div>
+            {[profile[1], profile[2], profile[4]].map((p, i) => (
+              <div className={`ap-float f${i + 1}`} key={p.k}>
+                <span>{p.k}</span>
+                <b>{p.v}</b>
+              </div>
+            ))}
+          </div>
         </div>
 
         <ul className="ap-strip">

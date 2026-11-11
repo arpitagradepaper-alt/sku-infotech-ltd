@@ -1,6 +1,7 @@
 ﻿import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { ArrowRight, Menu, X } from 'lucide-react'
+import logo from '../assets/sku-logo.png'
 import './Navbar.css'
 
 const links = [
@@ -14,16 +15,15 @@ export default function Navbar() {
   const { pathname } = useLocation()
   const [open, setOpen] = useState(false)
 
-  useEffect(() => { setOpen(false) }, [pathname])
+  useEffect(() => {
+    setOpen(false)
+  }, [pathname])
 
   return (
     <nav className={`navbar ${open ? 'open' : ''}`}>
+
       <Link to="/" className="logo">
-        <div className="logo-icon">S</div>
-        <div>
-          <h3><span>SKU</span> INFOTECH LTD</h3>
-          <small>Innovate • Develop • Grow</small>
-        </div>
+        <img src={logo} alt="SKU INFOTECH LTD - Innovate Develop Grow" />
       </Link>
 
       <ul className="nav-links">
@@ -34,11 +34,19 @@ export default function Navbar() {
         ))}
       </ul>
 
-      <Link to="/contact" className="btn-gold nav-cta">Get Started <ArrowRight size={18} /></Link>
+      <Link to="/contact" className="btn-gold nav-cta">
+        Get Started <ArrowRight size={18} />
+      </Link>
 
-      <button className="nav-toggle" aria-label="Toggle menu" aria-expanded={open} onClick={() => setOpen(!open)}>
+      <button
+        className="nav-toggle"
+        aria-label="Toggle menu"
+        aria-expanded={open}
+        onClick={() => setOpen(!open)}
+      >
         {open ? <X size={24} /> : <Menu size={24} />}
       </button>
+
     </nav>
   )
 }
