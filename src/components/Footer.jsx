@@ -1,4 +1,4 @@
-﻿import { ArrowRight, ArrowUp } from 'lucide-react'
+﻿import { ArrowRight, ArrowUp, Mail, MapPin, Phone } from 'lucide-react'
 import { FaFacebookF, FaInstagram, FaLinkedinIn } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import logo from '../assets/sku-logo.png'
@@ -94,6 +94,27 @@ export default function Footer() {
                 </Link>
               </li>
             ))}
+          </ul>
+        </div>
+
+        <div className="ft-col ft-contact">
+          <h4>Contact Us</h4>
+          <ul>
+            <li>
+              <Mail size={16} />
+              <a href="mailto:Skuinfotech@gmail.com">Skuinfotech@gmail.com</a>
+            </li>
+            <li>
+              <MapPin size={16} />
+              <span>
+                Flat 632, Blenheim Centre, Prince Regent Road,
+                Hounslow, TW3 1NJ
+              </span>
+            </li>
+            <li>
+              <Phone size={16} />
+              <a href="tel:+447776597878">+44 7776 597878</a>
+            </li>
           </ul>
         </div>
       </div>

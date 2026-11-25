@@ -600,3 +600,60 @@
     font-size: 17px;
   }
 }
+
+/* ===== FOOTER CONTACT US ===== */
+.ft-main {
+  grid-template-columns: 1.25fr 0.8fr 0.9fr 1.25fr;
+  gap: 45px;
+}
+
+.ft-contact ul li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 17px;
+  color: #a9bdb4;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.ft-contact ul li svg {
+  flex-shrink: 0;
+  margin-top: 4px;
+  color: #10bd91;
+}
+
+.ft-contact ul li a {
+  color: #a9bdb4;
+  text-decoration: none;
+  word-break: break-word;
+  transition: color 0.2s ease;
+}
+
+.ft-contact ul li a:hover {
+  color: #10bd91;
+}
+
+@media (max-width: 1100px) {
+  .ft-main {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+
+  .ft-brand {
+    grid-column: 1 / -1;
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 600px) {
+  .ft-main {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .ft-brand {
+    grid-column: auto;
+    max-width: 100%;
+  }
+}
